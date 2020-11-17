@@ -1,35 +1,24 @@
+<div class="container">
+  <h1>List of bikes</h1>
+</div>
 
-<h1>List of bikes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Daily Price</th>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bikes.each do |bike| %>
-    <tr>
-      <td><%= bike.title %></td>
-      <td><%= bike.bike_type %></td>
-      <td><%= bike.description %></td>
-      <td><%= bike.daily_price %></td>
-      <td><%= link_to 'Show', bike %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_tag(bikes_path, method: :get, class: "form-inline") do %>
+        <%= text_field_tag(:query, params[:query], class: "form-control", placeholder: "Find a bike") %>
+        <%= submit_tag "Search", class: "btn btn-outline-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div class="container">
   <div class="row">
     <% @bikes.each do |bike| %>
-    <div class="col-lg-3">
-      <%= render "shared/card-product", card_infos: bike %>
-    </div>
+      <div class="col-12 col-md-6 col-lg-3 my-2">
+        <%= render "shared/card-product", card_infos: bike %>
+      </div>
     <% end %>
   </div>
 </div>

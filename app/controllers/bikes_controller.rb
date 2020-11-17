@@ -1,10 +1,16 @@
 class BikesController < ApplicationController
 
   def index
-    @bikes = Bike.all
-
-    # with "search a Bike" feature
-    # @bikes = Bike.search(params[:search])
+    if params[:query].present?
+      @bikes = Bike.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @bikes = Bike.all
+    end
   end
+
+  # Emile pour Tests
+  # def show
+  #   @bike = Bike.find(params[:id])
+  # end
 
 end
