@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Renting1818</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,15 +9,15 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-  </head>
+</head>
 
-  <body>
+<body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    
+
     <%# # rajout texte rouge de la Lectures %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-  </body>
+</body>
 </html>
