@@ -1,0 +1,35 @@
+
+<h1>List of bikes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Daily Price</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bikes.each do |bike| %>
+    <tr>
+      <td><%= bike.title %></td>
+      <td><%= bike.bike_type %></td>
+      <td><%= bike.description %></td>
+      <td><%= bike.daily_price %></td>
+      <td><%= link_to 'Show', bike %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="container">
+  <div class="row">
+    <% @bikes.each do |bike| %>
+    <div class="col-lg-3">
+      <%= render "shared/card-product", card_infos: bike %>
+    </div>
+    <% end %>
+  </div>
+</div>
