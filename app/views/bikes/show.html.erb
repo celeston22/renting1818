@@ -1,6 +1,47 @@
-<h1><%= @bike.title %></h1>
+<section class="container">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <article>
+                <h2 class="font-weight-bold"><%= @bike.title %></h2>
+                <div>
+                    <% if @bike.enable %>
+                    <p><span class="p-1 mb-2 bg-success text-white"><i class="fas fa-check-circle"></i> <%= "Disponible" %></span></p>
+                    <% end %>
+                </div>
+                <p class="font-weight-bold">Type: <%= @bike.bike_type %></p>
+                <div>
+                    <%= cl_image_tag(@bike.image.key, width: 700, crop: :fill)%>
+                </div>
+                <p class="mt-4"><strong>Description:</strong> <%= @bike.description %></p>
+                <h4><i class="fas fa-home"></i> Address</h4>
+                <p><%= @bike.address_line_1 %><br><%= @bike.zipcode %> <%= @bike.city %><br><%= @bike.country.upcase %></p>
 
-<h3><%= @bike.id %></h3>
-<h3><%= @bike.bike_type %></h3>
-
-<%= link_to "Back", bikes_path %>
+            </article>
+        </div>
+        <div class="col-12 col-lg-4">
+            <div class="p-3 mb-2 bg-light shadow">
+                <h2 class="font-weight-bold">Réservation</h2>
+                <p><span class="font-weight-bold"><%= @bike.daily_price %>€</span>/jour</p>
+                <!-- <p class="text-warning"><em><\date de début de location> - <\date de fin de location></em></p> -->
+                <a class="btn btn-primary" href="#" role="button"> <i class="fas fa-check"></i> Réserver</a> <!-- Lien vers la table bookings -->
+                <!-- <div>
+                    <ul>
+                        <li class="text-warning"><%= @bike.daily_price %> x <\nombre de jour> jour(s) <\prix total></li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <hr>
+</section>
+<section class="container">
+    <h4><i class="fas fa-user"></i> Proposé par <span class="text-warning"><\ nom du propriétaire ></span></h4>
+    <p class="text-black-50">membre depuis 2020</p>
+    <ul>
+        <li>Taux de réponse: 100%</li>
+        <li>Délai de réponse: Quelques heures</li>
+    </ul>
+    <a class = "btn btn-secondary disabled" href="#">Contacter le propriétaire du vélo</a> <!-- si pas connecté, me renvoyer sur la page d'authentification -->
+    <hr>
+    <%= link_to("<-Back to list", bikes_path)%>
+</section>
