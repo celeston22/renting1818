@@ -1,4 +1,7 @@
 class BikesController < ApplicationController
+   def show
+       @bike = Bike.find(params[:id])
+   end
 
   def index
     if params[:query].present?
@@ -7,10 +10,5 @@ class BikesController < ApplicationController
       @bikes = Bike.all
     end
   end
-
-  # Emile pour Tests
-  # def show
-  #   @bike = Bike.find(params[:id])
-  # end
 
 end
