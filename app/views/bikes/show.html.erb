@@ -11,7 +11,7 @@
                 </div>
                 <p class="font-weight-bold">Type: <%= @bike.bike_type %></p>
                 <div>
-                    <%= cl_image_tag(@bike.image.key)%>
+                    <%= cl_image_tag(@bike.image.key, width: 700, crop: :fill)%>
                 </div>
                 <p class="mt-4"><strong>Description:</strong> <%= @bike.description %></p>
                 <h4><i class="fas fa-home"></i> Address</h4>
