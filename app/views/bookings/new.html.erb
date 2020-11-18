@@ -1,0 +1,8 @@
+<section class="container">
+    <h1>Récapitulatif de ma réservation</h1>
+    <%= simple_form_for [  @bike, @booking ] do |f| %>
+    <p><%= @booking.total_price %>€</p>
+    <%= f.input :total_price, input_HTML: { value: "@booking.total_price" } %>
+    <%= f.submit "Valider ma réservation", class: "btn btn-primary" %>
+    <% end %>
+</section>
