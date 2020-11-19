@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>List of my bookings</h1>
+</div>
+
+<div class="container">
+ <table>
+  <thead>
+    <tr>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Total price</th>
+      <th>Status</th>   
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookings.each do |booking| %>
+    <tr>
+      <td><%= booking.start_date %></td>
+      <td><%= booking.end_date %></td>
+      <td><%= booking.total_price %></td>
+      <td><%= booking.status %></td>
+
+     <td> <%= link_to "Confirm?", "#", class:"btn btn-primary btn-block" %></td>
+      <td><%= link_to "Deny?", "#", class:"btn btn-primary btn-block" %></td>
+<td><%= link_to "Cancel?", cancel_booking_path(booking), method: :patch, class:"btn btn-primary btn-block" %></td>
+    </tr>
+
+    <%# <%= f.button :submit, "Confirm cancel", class:"btn btn-primary btn-block" %>
+    <%# <%= f.button :button, "Confirm cancel", type: "reset", class: "btn-outline-secondary" %>
+    <%# <%= link_to 'Back', bikes_path %>
+
+    
+    <% end %>
+  </tbody>
+</table>
+</div>
