@@ -16,8 +16,8 @@ password: "123456",
 first_name: "Michel",
 last_name: "Blanc",
 address_line_1: "10, rue Saint_michel",
-zipcode: "35000",
-city: "Rennes",
+zipcode: "75000",
+city: "Paris",
 country: "France"
 )
 user1.avatar.attach(io: File.open(Rails.root.join('db/fixtures/users/user_1.jpg')), filename: 'user_1.jpg')
@@ -42,8 +42,8 @@ password: "123456",
 first_name: "Jean-Michel",
 last_name: "Jarre",
 address_line_1: "10, chemin des vielles charrues",
-zipcode: "29270",
-city: "Carhaix",
+zipcode: "35400",
+city: "Saint_malo",
 country: "France"
 )
 user3.avatar.attach(io: File.open(Rails.root.join('db/fixtures/users/user_3.jpg')), filename: 'user_3.jpg')
@@ -55,8 +55,8 @@ password: "123456",
 first_name: "Michel",
 last_name: "Polnaref",
 address_line_1: "10, chemin des vielles charrues",
-zipcode: "22110",
-city: "Rostrenen",
+zipcode: "35800",
+city: "Dinard",
 country: "France"
 )
 user4.avatar.attach(io: File.open(Rails.root.join('db/fixtures/users/user_4.jpg')), filename: 'user_4.jpg')
