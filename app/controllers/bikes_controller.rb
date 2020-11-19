@@ -1,7 +1,8 @@
 class BikesController < ApplicationController
  def show
-     @bike = Bike.find(params[:id])
-     @booking = Booking.new
+       @bike = Bike.find(params[:id])
+       @user = @bike.user
+       @booking = Booking.new
  end
 
  def index
