@@ -13,7 +13,8 @@
                     <%= cl_image_tag(@bike.image.key, width: 700, crop: :fill)%>
                 </div>
                 <p class="mt-4"><strong>Description:</strong> <%= @bike.description %></p>
-                <h4><i class="fas fa-home"></i> Address</h4>
+                <!-- Avant <h4><i class="fas fa-home"></i> Address</h4> -->
+                <h4><i class="fas fa-home"></i></h4>
                 <p><%= @bike.address_line_1 %><br><%= @bike.zipcode %> <%= @bike.city %><br><%= @bike.country.upcase %></p>
 
             </article>
@@ -37,7 +38,13 @@
     <hr>
 </section>
 <section class="container">
+    <!-- Avant
     <h4><i class="fas fa-user"></i> Proposed by <span class="text-warning"><%= @user.first_name %> <%= @user.last_name %></span></h4>
+    -->
+    <div class="row">
+      <%= cl_image_tag @user.avatar.key, class: "avatar-large" %>
+      <h4>Proposed by <span class="text-warning"><%= @user.first_name %> <%= @user.last_name %></span></h4>
+    </div>
     <p class="text-black-50">Member since 2020</p>
     <ul>
         <li>Response rate: 100%</li>
@@ -46,4 +53,4 @@
     <a class = "btn btn-secondary disabled" href="#">Contact the owner of the bike</a> <!-- si pas connecté, me renvoyer sur la page d'authentification -->
     <hr>
     <%= link_to("<-Back to list", bikes_path)%>
-    </section>
+</section>
