@@ -1,11 +1,12 @@
 class MyBikesController < ApplicationController
-  # GET /my_bikes/new
+
   def new
     @my_bike = Bike.new
   end
-
+  
   def index
     @my_bikes = Bike.all.where(user: current_user)
+    @bikes = Booking.all
   end
 
   # POST /bikes
@@ -18,6 +19,17 @@ class MyBikesController < ApplicationController
     else
       render :new
     end
+
+
+    def create
+        @my_bike = Bike.new(my_bike_params)
+        @my_bike.user = current_user
+        @my_bike.enable = true
+        if @my_bike.save!
+          redirect_to @my_bike, notice: 'My bike was successfully created.'
+      else
+          render :new
+      end
   end
 
   def edit

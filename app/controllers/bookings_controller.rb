@@ -1,6 +1,12 @@
 class BookingsController < ApplicationController
     # before_action :find_bike, only: [ :new ]
 
+    def index
+        @bookings = current_user.bookings
+        @bookings_others = Booking.joins(:bike).where(bikes: {user: current_user})
+
+    end
+
     def new
         @booking = Booking.new
         # @user = Users.find(params[:user_id])
