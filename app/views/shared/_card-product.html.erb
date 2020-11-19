@@ -8,6 +8,10 @@
       <p><%= card_infos.bike_type %></p>
     </div>
     <h2 class="card-product-pricing"><%= card_infos.daily_price %>€</h2>
-  </div>
 
+    <% if request.path != "/my_bikes" %>
+      <%= cl_image_tag card_infos.user.avatar.key, class: "card-product-user avatar-bordered" %>
+    <% end %>
+
+  </div>
 </div>

@@ -22,6 +22,7 @@ class MyBikesController < ApplicationController
   end
 
   def edit
+    @my_bike = Bike.find(params[:id])
   end
 
   def update
