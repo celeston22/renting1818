@@ -20,15 +20,15 @@
         </div>
         <div class="col-12 col-lg-4">
             <div class="p-3 mb-2 bg-light shadow">
-                <h2 class="font-weight-bold">Réservation</h2>
+                <h2 class="font-weight-bold">Reservation</h2>
                 <p><span class="font-weight-bold"><%= @bike.daily_price %>€</span>/jour</p>
-                <!-- <p class="text-warning"><em><\date de début de location> - <\date de fin de location></em></p> -->
-                <a class="btn btn-primary" href="#" role="button"> <i class="fas fa-check"></i> Réserver</a> <!-- Lien vers la table bookings -->
-                <!-- <div>
-                    <ul>
-                        <li class="text-warning"><%= @bike.daily_price %> x <\nombre de jour> jour(s) <\prix total></li>
-                    </ul>
-                </div> -->
+                <div>
+                    <%= simple_form_for [ @bike, @booking ] do |f| %>
+                    <%= f.input :start_date, label: 'Your date starting'%>
+                    <%= f.input :end_date, label: 'Your date ending' %>
+                    <%= f.button :submit, "Booking", class:"btn btn-primary btn-block" %>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>
@@ -44,4 +44,4 @@
     <a class = "btn btn-secondary disabled" href="#">Contacter le propriétaire du vélo</a> <!-- si pas connecté, me renvoyer sur la page d'authentification -->
     <hr>
     <%= link_to("<-Back to list", bikes_path)%>
-</section>
+    </section>
