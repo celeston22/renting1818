@@ -4,6 +4,10 @@ class MyBikesController < ApplicationController
     @my_bike = Bike.new
   end
 
+  def index
+    @my_bikes = Bike.all.where(user: current_user)
+  end
+
   # POST /bikes
   def create
     @my_bike = Bike.new(my_bike_params)
