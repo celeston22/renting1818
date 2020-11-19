@@ -20,10 +20,10 @@
         </div>
         <div class="col-12 col-lg-4">
             <div class="p-3 mb-2 bg-light shadow">
-                <h2 class="font-weight-bold">Réservation</h2>
-                <p><span class="font-weight-bold"><%= @bike.daily_price %>€</span>/jour</p>
+                <h2 class="font-weight-bold">My bike</h2>
+                <p><span class="font-weight-bold"><%= @bike.daily_price %>€</span>/day</p>
                 <!-- <p class="text-warning"><em><\date de début de location> - <\date de fin de location></em></p> -->
-                <a class="btn btn-primary" href="#" role="button"> <i class="fas fa-check"></i> Réserver</a> <!-- Lien vers la table bookings -->
+                <a class="btn btn-primary" href="#" role="button"> <i class="fas fa-check"></i> Booking</a> <!-- Lien vers la table bookings -->
                 <!-- <div>
                     <ul>
                         <li class="text-warning"><%= @bike.daily_price %> x <\nombre de jour> jour(s) <\prix total></li>
@@ -35,13 +35,13 @@
     <hr>
 </section>
 <section class="container">
-    <h4><i class="fas fa-user"></i> Proposé par <span class="text-warning"><\ nom du propriétaire ></span></h4>
-    <p class="text-black-50">membre depuis 2020</p>
+    <h4><i class="fas fa-user"></i> Proposed by <span class="text-warning"><%= @user.first_name %> <%= @user.last_name %></span></h4>
+    <p class="text-black-50">Member since 2020</p>
     <ul>
-        <li>Taux de réponse: 100%</li>
-        <li>Délai de réponse: Quelques heures</li>
+        <li>Response rate: 100%</li>
+        <li>Response time: few hours</li>
     </ul>
-    <a class = "btn btn-secondary disabled" href="#">Contacter le propriétaire du vélo</a> <!-- si pas connecté, me renvoyer sur la page d'authentification -->
+    <a class = "btn btn-secondary disabled" href="#">Contact the owner of the bike</a> <!-- si pas connecté, me renvoyer sur la page d'authentification -->
     <hr>
     <%= link_to("<-Back to list", bikes_path)%>
 </section>
