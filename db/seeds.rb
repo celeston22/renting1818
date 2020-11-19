@@ -78,7 +78,7 @@ bike1.image.attach(io: File.open(Rails.root.join('db/fixtures/bikes/bike_1.jpg')
 bike1.save!
 
 bike2 = Bike.new(
-title:"Santa Cruz STIGMATA SRAM RED ",
+title:"SANTA CRUZ Stigmata",
 bike_type: "Course",
 description:"A louer un velo de course qui roule super vite",
 daily_price: 20,
@@ -93,7 +93,7 @@ bike2.image.attach(io: File.open(Rails.root.join('db/fixtures/bikes/bike_2.jpg')
 bike2.save!
 
 bike3 = Bike.new(
-title:"Cervelo R5 DISC SRAM RED",
+title:"CERVELO R5 Disc ",
 bike_type: "Course",
 description:"Je loue mon beau vélo, hyper pratique pour aller chercher le pain",
 daily_price: 20,
@@ -198,9 +198,9 @@ bike9.image.attach(io: File.open(Rails.root.join('db/fixtures/bikes/bike_9.jpg')
 bike9.save!
 
 bike10 = Bike.new(
-title:"VTT de balade",
-bike_type: "VTT",
-description:"Vélo mixte gris, en bon état",
+title:"Vélo de ville femme",
+bike_type: "Ville",
+description:"Vélo gris, en bon état",
 daily_price: 20,
 address_line_1: "10, chemin des vielles charrues",
 zipcode:"22110",
@@ -213,7 +213,7 @@ bike10.image.attach(io: File.open(Rails.root.join('db/fixtures/bikes/bike_10.jpg
 bike10.save!
 
 bike11 = Bike.new(
-title:"VTT de balade",
+title:"VTT haut de gamme",
 bike_type: "VTT",
 description:"Hardtail Bike avec Suspension Avant",
 daily_price: 20,
@@ -241,7 +241,7 @@ booking2 = Booking.new(
 start_date: "2020-10-10",
 end_date: "2020-10-12",
 total_price: 60,
-bike: bike3,
+bike: bike7,
 user: user1,
 status: "accepted"
 )
