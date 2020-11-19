@@ -1,0 +1,31 @@
+<section class="container">
+    <h1>My bookings</h1>
+    <div class="row">
+        <% @bookings.each do |booking| %>
+        <div class="col-12 col-md-6 col-lg-3 my-2">
+            <%= booking.bike.title %>
+            <%= booking.bike.bike_type %>
+            <%= booking.start_date %>
+            <%= booking.end_date %>
+            <%= booking.total_price %>
+            <%= booking.status %>
+        </div>
+        <% end %>
+    </div>
+</section>
+<section class="container">
+    <h1>Bookings of my bikes</h1>
+    <div class="row">
+        <% @bookings_others.each do |booking| %>
+        <div class="col-12 col-md-6 col-lg-3 my-2">
+            <%= booking.bike.title %>
+            <%= booking.bike.bike_type %>
+            <%= booking.start_date %>
+            <%= booking.end_date %>
+            <%= booking.total_price %>
+            <%= booking.status %>
+            renting by: <%= booking.user.first_name + " " + booking.user.last_name %>
+        </div>
+        <% end %>
+    </div>
+</section>
