@@ -38,19 +38,24 @@
     <hr>
 </section>
 <section class="container">
-    <!-- Avant
-    <h4><i class="fas fa-user"></i> Proposed by <span class="text-warning"><%= @user.first_name %> <%= @user.last_name %></span></h4>
-    -->
     <div class="row">
-      <%= cl_image_tag @user.avatar.key, class: "avatar-large" %>
-      <h4>Proposed by <span class="text-warning"><%= @user.first_name %> <%= @user.last_name %></span></h4>
+        <div class="col-12">
+          <%= cl_image_tag @user.avatar.key, class: "avatar" %>
+          <h4>Proposed by <span class="text-warning"><%= @user.first_name %> <%= @user.last_name %></span></h4>
+          <span class="text-black-50">Member since 2020</span>
+
+          <ul>
+            <li>Response rate: 100%</li>
+            <li>Response time: few hours</li>
+        </ul>
+       <!--  <div>
+            <%= link_to("Contact the owner", bikes_path, class:"btn btn-sm btn-outline-secondary disabled") %>
+        </div> -->
     </div>
-    <p class="text-black-50">Member since 2020</p>
-    <ul>
-        <li>Response rate: 100%</li>
-        <li>Response time: few hours</li>
-    </ul>
-    <a class = "btn btn-secondary disabled" href="#">Contact the owner of the bike</a> <!-- si pas connecté, me renvoyer sur la page d'authentification -->
+    <!-- <a class = "btn btn-secondary disabled" href="#">Contact the owner of the bike</a> --> <!-- si pas connecté, me renvoyer sur la page d'authentification -->
     <hr>
-    <%= link_to("<-Back to list", bikes_path)%>
+</div>
 </section>
+<section class="container">
+    <%= link_to("<-Back to list", bikes_path, class:"btn btn-sm btn-outline-secondary")%>
+    </section>
