@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:show, :index] do
     member do
-      patch :approve  
+      patch :approve
     end
     member do
       patch :deny
