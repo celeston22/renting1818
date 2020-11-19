@@ -1,0 +1,24 @@
+<%= simple_form_for(@my_bike) do |f| %>
+
+  <%= f.error_notification %>
+
+  <%= f.input :title %>
+  <%= f.input :bike_type %>
+
+  <%= f.input :description %>
+
+  <%= f.input :daily_price as: :range %>
+
+  <%= f.input :enable, as: :radio_buttons %>
+
+  <h2>Please indicate where is the bike:</h2>
+  <h3>(as its location may be different from the address indicated in your profile)</h3>
+  <%= f.input :address_line_1 %>
+  <%= f.input :address_line_2 %>
+  <%= f.input :zipcode %>
+  <%= f.input :city %>
+  <%= f.input :country, as: :text %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+
+<% end %>
