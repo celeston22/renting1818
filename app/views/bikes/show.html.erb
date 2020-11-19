@@ -21,6 +21,7 @@
         <div class="col-12 col-lg-4">
             <div class="p-3 mb-2 bg-light shadow">
                 <h2 class="font-weight-bold">Réservation</h2>
+
                 <p><span class="font-weight-bold"><%= @bike.daily_price %>€</span>/jour</p>
                 <!-- <p class="text-warning"><em><\date de début de location> - <\date de fin de location></em></p> -->
                 <%= link_to("Réserver", new_bike_booking_path(@bike), class: "btn btn-primary") %>
