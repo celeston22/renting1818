@@ -14,5 +14,19 @@ h1 {
 
 img {
   width: 100%
+}
 
+@keyframes moveRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.custom-h1 {
+  animation-duration: 2500ms;
+  animation-name: moveRight;
+  width: 100%;
 }
