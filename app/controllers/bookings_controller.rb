@@ -24,6 +24,17 @@ class BookingsController < ApplicationController
         @booking.save
         redirect_to bike_path(@bike)
     end
+    
+    def index
+        @bookings = Booking.all
+    end
+
+    def cancel
+        @booking = Booking.find(params[:id])
+        @booking.status = "cancel"
+        @booking.save
+        redirect_to bookings_path
+    end
 
     private
 
