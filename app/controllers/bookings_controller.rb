@@ -2,9 +2,8 @@ class BookingsController < ApplicationController
     # before_action :find_bike, only: [ :new ]
 
     def index
-        @bookings = current_user.bookings
-        @bookings_others = Booking.joins(:bike).where(bikes: {user: current_user})
-
+        @bookings = current_user.bookings.order(created_at: :desc)
+        @bookings_others = Booking.joins(:bike).where(bikes: {user: current_user}).order(created_at: :desc)
     end
 
     def new
@@ -24,7 +23,7 @@ class BookingsController < ApplicationController
         @booking.save
         redirect_to bike_path(@bike)
     end
-    
+
     def index
         @bookings = Booking.all
     end
