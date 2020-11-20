@@ -6,11 +6,10 @@
   <div class="row">
     <% @my_bikes.each do |my_bike| %>
       <div class="col-12 col-md-6 col-lg-3 my-2">
-        <%= link_to edit_my_bike_path(my_bike) do %>
+        <%= link_to bike_path(my_bike) do %>
           <%= render "shared/card-product", card_infos: my_bike %>
         <% end %>
       </div>
     <% end %>
   </div>
 </div>
-
