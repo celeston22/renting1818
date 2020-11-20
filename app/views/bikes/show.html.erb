@@ -26,8 +26,8 @@
                 <p><span class="font-weight-bold"><%= @bike.daily_price %>€</span>/jour</p>
                 <div>
                     <%= simple_form_for [ @bike, @booking ] do |f| %>
-                    <%= f.input :start_date, label: 'Your date starting'%>
-                    <%= f.input :end_date, label: 'Your date ending' %>
+                    <%= f.input :start_date, label: 'Your starting date'%>
+                    <%= f.input :end_date, label: 'Your ending date' %>
                     <%= f.button :submit, "Confirm", class:"btn btn-primary btn-block" %>
                     <% end %>
                 </div>
