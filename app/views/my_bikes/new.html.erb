@@ -4,7 +4,7 @@
   <div class="p-10"> <%= simple_form_for @my_bike, url: url_for(controller: "my_bikes", action: "create") do |f| %>
      <%= f.error_notification %>
      <%= f.input :title %>
-     <%= f.input :bike_type %>
+     <%= f.input :bike_type, :collection => ["Course", "Ville", "VTT", "Cargo", "Tandem"] %>
      <%= f.input :description %>
      <%= f.input :daily_price %>
      <%= f.input :address_line_1 %>
