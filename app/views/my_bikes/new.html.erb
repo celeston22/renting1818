@@ -1,24 +1,25 @@
  <div>
   <h1>New Bike</h1>
 
-  <div class="p-10"> <%= simple_form_for @my_bike, url: url_for(controller: "my_bikes", action: "create") do |f| %>
-     <%= f.error_notification %>
-     <%= f.input :title %>
-     <%= f.input :bike_type, :collection => ["Course", "Ville", "VTT", "Cargo", "Tandem"] %>
-     <%= f.input :description %>
-     <%= f.input :daily_price %>
-     <%= f.input :address_line_1 %>
-     <%= f.input :address_line_2 %>
-     <%= f.input :zipcode %>
-     <%= f.input :city %>
-     <%= f.input :country, as: :text %>
-     <%= f.input :image, as: :file %>
-
-
-     <%= f.button :submit, class: "btn-primary" %>
-     <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-    <% end %>
+  <div class="ml-5 pr-5">
+  <div class="pl-5 pr-5">
+       <%= simple_form_for @my_bike, url: url_for(controller: "my_bikes", action: "create") do |f| %>
+       <%= f.error_notification %>
+       <%= f.input :title %>
+       <%= f.input :bike_type, :collection => ["Course", "Ville", "VTT", "Cargo", "Tandem"] %>
+       <%= f.input :description %>
+       <%= f.input :daily_price %>
+       <%= f.input :address_line_1 %>
+       <%= f.input :address_line_2 %>
+       <%= f.input :zipcode %>
+       <%= f.input :city %>
+       <%= f.input :country, as: :text %>
+       <%= f.input :image, as: :file %>
+       <%= f.button :submit, class: "btn-dark" %>
+      <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+      <% end %>
+      <%= link_to 'Back', bikes_path, style: "color: black"%>
+    </div>
   </div>
 
-  <%= link_to 'Back', bikes_path %>
 </div>
