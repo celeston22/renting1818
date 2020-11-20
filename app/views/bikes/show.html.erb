@@ -1,9 +1,9 @@
 <section class="container">
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-12 col-lg-8">
             <article>
               <%# if current_user != @bike.user %>
-                <h2 class="font-weight-bold mt-5"><%= @bike.title %></h2>
+                <h2 class="font-weight-bold"><%= @bike.title %></h2>
                 <div>
                     <% if @bike.enable %>
                     <p><span class="p-1 mb-2 bg-success text-white"><i class="fas fa-check-circle"></i> <%= "Available" %></span></p>
@@ -23,7 +23,7 @@
             </article>
         </div>
           <div class="col-12 col-lg-4">
-              <div class="p-3 mb-2 bg-light shadow mt-5">
+              <div class="p-3 mb-2 bg-light shadow">
 
                 <% if current_user != @bike.user %>
                   <h2 class="font-weight-bold ">Booking</h2>
