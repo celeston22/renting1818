@@ -1,35 +1,31 @@
 <div class="container">
   <h1>Change <%= @my_bike.title %></h1>
-  <%= request.path %>
+  <%#= request.path %>
 </div>
 
 <%#= render 'form' %>
 
 <div class="container">
-<%= form_for(@my_bike) do |f| %>
-  <%= f.label(:title) %>
-  <%= f.text_field(:title) %>
+  <%= simple_form_for @my_bike do |f| %>
+    <%= f.error_notification %>
 
-  <%#= f.label(:) %>
-  <%= f.text_field(:bike_type) %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :bike_type %>
+    <%= f.input :daily_price %>
+    <%= f.input :enable, as: :radio_buttons %>
 
-  <%= f.label(:description) %>
-  <%= f.text_field(:description) %>
+    <h4>Please indicate where is your bike:</h4>
+    <h4>(as its location may be different from the address indicated in your profile)</h4>
+    <%= f.input :address_line_1 %>
+    <%= f.input :address_line_2 %>
+    <%= f.input :zipcode %>
+    <%= f.input :city %>
+    <%#= f.input :country %>
 
-  <%= f.label("Daily Price") %>
-  <%= f.text_field(:daily_price) %>
-
-  <%#= f.label(:) %>
-  <%= f.text_field(:enable) %>
-
-  <h4>Please indicate where is your bike:</h4>
-  <h4>(as its location may be different from the address indicated in your profile)</h4>
-  <%= f.text_field(:address_line_1) %>
-  <%= f.text_field(:address_line_2) %>
-  <%= f.text_field(:zipcode) %>
-  <%= f.text_field(:city) %>
-  <%= f.text_field(:country) %>
-<% end %>
+    <%= f.button :submit, class: "btn-primary" %>
+    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+  <% end %>
 
   <%= link_to 'Back', my_bikes_path %>
 </div>

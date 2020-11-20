@@ -7,9 +7,9 @@ class BikesController < ApplicationController
 
   def index
     if params[:query].present?
-      @bikes = Bike.where("title ILIKE ?", "%#{params[:query]}%")
+      @bikes = Bike.search_by_title_and_bike_type_and_description(params[:query]).order(created_at: :desc)
     else
-      @bikes = Bike.all
+      @bikes = Bike.all.order(created_at: :desc)
     end
 
     # 18.11.2020 the `geocoded` scope filters only bikes with coordinates (latitude & longitude)
@@ -19,17 +19,6 @@ class BikesController < ApplicationController
         lng: bike.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { bike: bike })
     }
-    end
-  end
-
-  def edit
-  end
-
-  def update
-    if @bike.update(bike_params)
-      redirect_to @bike, notice: 'The bicycle was successfully updated.'
-    else
-      render :edit
     end
   end
 
