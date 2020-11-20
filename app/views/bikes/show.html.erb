@@ -2,60 +2,84 @@
     <div class="row">
         <div class="col-12 col-lg-8">
             <article>
+              <%# if current_user != @bike.user %>
                 <h2 class="font-weight-bold"><%= @bike.title %></h2>
                 <div>
                     <% if @bike.enable %>
-                    <p><span class="p-1 mb-2 bg-success text-white"><i class="fas fa-check-circle"></i> <%= "Disponible" %></span></p>
+                    <p><span class="p-1 mb-2 bg-success text-white"><i class="fas fa-check-circle"></i> <%= "Available" %></span></p>
                     <% end %>
                 </div>
                 <p class="font-weight-bold">Type: <%= @bike.bike_type %></p>
+              <%# end %>
                 <div>
                     <%= cl_image_tag(@bike.image.key, width: 700, crop: :fill)%>
                 </div>
+              <%# if current_user != @bike.user %>
                 <p class="mt-4"><strong>Description:</strong> <%= @bike.description %></p>
                 <!-- Avant <h4><i class="fas fa-home"></i> Address</h4> -->
                 <h4><i class="fas fa-home"></i></h4>
                 <p><%= @bike.address_line_1 %><br><%= @bike.zipcode %> <%= @bike.city %><br><%= @bike.country.upcase %></p>
-
+              <%# end %>
             </article>
         </div>
-        <div class="col-12 col-lg-4">
-            <div class="p-3 mb-2 bg-light shadow">
+          <div class="col-12 col-lg-4">
+              <div class="p-3 mb-2 bg-light shadow">
 
-                <h2 class="font-weight-bold">Booking</h2>
-                <p><span class="font-weight-bold"><%= @bike.daily_price %>€</span>/jour</p>
-                <div>
+                <% if current_user != @bike.user %>
+                  <h2 class="font-weight-bold">Booking</h2>
+                  <p><span class="font-weight-bold"><%= @bike.daily_price %>€</span>/jour</p>
+                  <div>
                     <%= simple_form_for [ @bike, @booking ] do |f| %>
-                    <%= f.input :start_date, label: 'Your starting date'%>
-                    <%= f.input :end_date, label: 'Your ending date' %>
-                    <%= f.button :submit, "Confirm", class:"btn btn-primary btn-block" %>
+                      <%= f.input :start_date, label: 'Your starting date'%>
+                      <%= f.input :end_date, label: 'Your ending date' %>
+                      <%= f.button :submit, "Confirm", class:"btn btn-primary btn-block" %>
                     <% end %>
-                </div>
+                  </div>
+                <% else %>
+                  <h2 class="font-weight-bold">Modify your bicycle infos</h2>
+                  <div>
+                    <%= simple_form_for @bike do |f| %>
+                      <%= f.error_notification %>
 
-            </div>
-        </div>
+                      <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+                      <%= f.button :submit, "Confirm", class: "btn-primary" %>
+                    <% end %>
+                  </div>
+                <% end %>
+
+              </div>
+          </div>
+
     </div>
     <hr>
 </section>
-<section class="container">
-    <div class="row">
-        <div class="col-12">
-          <%= cl_image_tag @user.avatar.key, class: "avatar" %>
-          <h4>Proposed by <span class="text-warning"><%= @user.first_name %> <%= @user.last_name %></span></h4>
-          <span class="text-black-50">Member since 2020</span>
 
-          <ul>
-            <li>Response rate: 100%</li>
-            <li>Response time: few hours</li>
-        </ul>
-       <!--  <div>
-            <%= link_to("Contact the owner", bikes_path, class:"btn btn-sm btn-outline-secondary disabled") %>
-        </div> -->
-    </div>
-    <!-- <a class = "btn btn-secondary disabled" href="#">Contact the owner of the bike</a> --> <!-- si pas connecté, me renvoyer sur la page d'authentification -->
-    <hr>
-</div>
+<% if current_user != @bike.user %>
+  <section class="container">
+      <div class="row">
+          <div class="col-12">
+            <%= cl_image_tag @user.avatar.key, class: "avatar" %>
+            <h4>Proposed by <span class="text-warning"><%= @user.first_name %> <%= @user.last_name %></span></h4>
+            <span class="text-black-50">Member since 2020</span>
+
+            <ul>
+              <li>Response rate: 100%</li>
+              <li>Response time: few hours</li>
+          </ul>
+        <!--  <div>
+              <%= link_to("Contact the owner", bikes_path, class:"btn btn-sm btn-outline-secondary disabled") %>
+          </div> -->
+      </div>
+      <!-- <a class = "btn btn-secondary disabled" href="#">Contact the owner of the bike</a> --> <!-- si pas connecté, me renvoyer sur la page d'authentification -->
+      <hr>
+  </div>
+<% end %>
+
 </section>
 <section class="container">
+  <% if current_user != @bike.user %>
     <%= link_to("<-Back to list", bikes_path, class:"btn btn-sm btn-outline-secondary")%>
+  <% else %>
+    <%= link_to("<-Back to list", my_bikes_path, class:"btn btn-sm btn-outline-secondary")%>
+  <% end %>
 </section>
