@@ -67,10 +67,15 @@ img {
 
 .link{
   color: black;
+  text-decoration: none;
 }
 
 .link:hover{
+  color: grey;
   text-decoration: none;
-  color: black;
-  transition: scale(2)
+}
+
+.scale:hover{
+  transform: scale(1.02);
+  transition: 0.3s;
 }
