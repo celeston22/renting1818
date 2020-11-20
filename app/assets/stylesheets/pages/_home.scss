@@ -1,18 +1,31 @@
 // Specific CSS for your home-page
 .banner  {
-  text-align: center
+  text-align: center;
+  background-image: asset-url('background_airbike.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 180px 0;
+  color: white;
+  text-shadow: 2px 2px 2px black;
 }
 
 .cell {
-  padding: 10px
+  padding: 10px;
+}
+.cell input{
+  padding: 5px 0;
 }
 
 h1 {
-  padding-top: 30px
+  padding-top: 30px;
+}
+
+.title-home{
+  font-weight: 900;
 }
 
 img {
-  width: 100%
+  width: 100%;
 }
 
 .footer {	
@@ -23,8 +36,6 @@ img {
   height: 60px;	
   padding: 0px 50px;	
   color: rgba(0,0,0,0.3);	
-  // position:absolute;	
-  // bottom: 0;
 }	
 
 .footer-links {	
@@ -46,4 +57,10 @@ img {
 
 .footer .fa-heart {	
   color: #343B3F;	
+}
+
+.cell input{
+  border:  1px solid #e5e5e5;
+  padding: 12px;
+  border-radius: 3px;
 }

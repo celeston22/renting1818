@@ -14,11 +14,10 @@
 <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
     <%# # rajout texte rouge de la Lectures %>
+    <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
     <%= render 'shared/footer' %>
 </body>
 </html>
