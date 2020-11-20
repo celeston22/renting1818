@@ -1,0 +1,24 @@
+<div class="container">
+  <%= simple_form_for @my_bike do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :bike_type %>
+    <%= f.input :daily_price %>
+    <%= f.input :enable, as: :radio_buttons %>
+
+    <h4>Please indicate where is your bike:</h4>
+    <h4>(as its location may be different from the address indicated in your profile)</h4>
+    <%= f.input :address_line_1 %>
+    <%= f.input :address_line_2 %>
+    <%= f.input :zipcode %>
+    <%= f.input :city %>
+    <%#= f.input :country %>
+
+    <%= f.button :submit, class: "btn-primary" %>
+    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+  <% end %>
+
+  <%= link_to 'Back', my_bikes_path %>
+</div>

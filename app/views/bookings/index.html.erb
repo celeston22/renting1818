@@ -1,37 +1,56 @@
-<div class="container">
-  <h1>List of my bookings</h1>
-</div>
-
-<div class="container">
- <table>
-  <thead>
-    <tr>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Total price</th>
-      <th>Status</th>   
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bookings.each do |booking| %>
-    <tr>
-      <td><%= booking.start_date %></td>
-      <td><%= booking.end_date %></td>
-      <td><%= booking.total_price %></td>
-      <td><%= booking.status %></td>
-
-     <td> <%= link_to "Confirm?", "#", class:"btn btn-primary btn-block" %></td>
-      <td><%= link_to "Deny?", "#", class:"btn btn-primary btn-block" %></td>
-<td><%= link_to "Cancel?", cancel_booking_path(booking), method: :patch, class:"btn btn-primary btn-block" %></td>
-    </tr>
-
-    <%# <%= f.button :submit, "Confirm cancel", class:"btn btn-primary btn-block" %>
-    <%# <%= f.button :button, "Confirm cancel", type: "reset", class: "btn-outline-secondary" %>
-    <%# <%= link_to 'Back', bikes_path %>
-
-    
-    <% end %>
-  </tbody>
-</table>
-</div>
+<section class="container">
+    <h1>My bookings</h1>
+    <div class="row">
+        <% if @bookings %>
+            <% @bookings.each do |booking| %>
+                <div class="col-12 col-md-6 col-lg-3 my-2">
+                    <h5>Booking date</h5>
+                    <p><%= booking.start_date %> - <%= booking.end_date %></p>
+                    <%= link_to bike_path(booking.bike) do %>
+                        <div class="card-product">
+                            <%= cl_image_tag booking.bike.image.key, height: 200, crop: :fill %>
+                            <div class="card-product-infos">
+                                <div>
+                                <h2><%= booking.bike.title[0..23] %></h2>
+                                <p><%= booking.bike.bike_type %></p>
+                                </div>
+                                <h2 class="card-product-pricing"><%= booking.total_price %>€</h2>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        <% else %>
+            <div class="col-12 col-md-6 col-lg-3 my-2">
+                <p>No bookings yet</p>
+            </div>
+        <% end %>
+    </div>
+</section>
+<section class="container">
+    <h1>Bookings of my bikes</h1>
+    <div class="row">
+        <% @bookings_others.each do |booking| %>
+            <div class="col-12 col-md-6 col-lg-3 my-2">
+                <h5>Booking date</h5>
+                <p><%= booking.start_date %> - <%= booking.end_date %></p>
+                <%= link_to bike_path(booking.bike) do %>
+                    <div class="card-product">
+                        <%= cl_image_tag booking.bike.image.key, height: 200, crop: :fill %>
+                        <div class="card-product-infos">
+                            <div>
+                                <h2>
+                                    <%= booking.bike.title[0..23] %>
+                                </h2>
+                                <p>
+                                    <%= booking.bike.bike_type %>
+                                </p>
+                            </div>
+                            <h2 class="card-product-pricing"><%= booking.total_price %>€</h2>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+</section>

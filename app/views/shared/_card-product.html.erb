@@ -1,33 +1,17 @@
-<!-- 17.11.2020 Emile : doit être en dehors du each
-=====> partie portée sur bikes/index.html.erb
-<div class="row">
-  <div class="col-lg-3">
--->
+<div class="card-product">
 
-  <div class="card-product">
+  <%= cl_image_tag card_infos.image.key, height: 200, crop: :fill %>
 
-      <% if card_infos.image.attached? %>
-        <%= cl_image_tag card_infos.image.key, height: 200, crop: :fill %>
-      <% else %>
-        <img src="https://i.pinimg.com/736x/af/bd/6b/afbd6b30d8849740b70ef46f83caa81a.jpg" />
-      <% end %>
-
-    <div class="card-product-infos">
-      <div>
-        <h2><%= card_infos.title[0..23] %></h2>
-        <p><%= card_infos.bike_type %></p>
-
-        <%= link_to(bike_path(card_infos)) do %>
-          <i class="fas fa-search-plus"></i>
-        <% end %>
-
-      </div>
-      <h2 class="card-product-pricing"><%= card_infos.daily_price %>€</h2>
+  <div class="card-product-infos">
+    <div>
+      <h2><%= card_infos.title[0..23] %></h2>
+      <p><%= card_infos.bike_type %></p>
     </div>
+    <h2 class="card-product-pricing"><%= card_infos.daily_price %>€</h2>
 
-  </div>
+    <% if request.path != "/my_bikes" %>
+      <%= cl_image_tag card_infos.user.avatar.key, class: "card-product-user avatar-bordered" %>
+    <% end %>
 
-<!--
   </div>
 </div>
--->

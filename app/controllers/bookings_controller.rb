@@ -1,6 +1,12 @@
 class BookingsController < ApplicationController
     # before_action :find_bike, only: [ :new ]
 
+    def index
+        @bookings = current_user.bookings
+        @bookings_others = Booking.joins(:bike).where(bikes: {user: current_user})
+
+    end
+
     def new
         @booking = Booking.new
         # @user = Users.find(params[:user_id])
@@ -15,7 +21,7 @@ class BookingsController < ApplicationController
         @booking.user = @user
         @booking.total_price = @bike.daily_price * (@booking.end_date - @booking.start_date).to_i
         @booking.status = "pending"
-        @booking.save!
+        @booking.save
         redirect_to bike_path(@bike)
     end
     
